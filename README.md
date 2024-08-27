@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME : Divakar R</H3>
+<H3>ENTER YOUR REGISTER NO : 212222240026</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE : </H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,74 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+
+```python
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("Churn_Modelling.csv")
+data
+data.head()
+
+X=data.iloc[:,:-1].values
+X
+
+y=data.iloc[:,-1].values
+y
+
+data.isnull().sum()
+
+data.duplicated()
+
+data.describe()
+
+data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+X_train
+
+X_test
+
+print("Lenght of X_test ",len(X_test))
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+## Dataset: 
+![data](https://github.com/user-attachments/assets/67a5ef0a-dda5-4f15-a113-c6d326b2d134)
+
+## Xvalues
+![x_values](https://github.com/user-attachments/assets/b00da373-8995-4062-aa9f-51769a91a646)
+
+
+## Yvalues
+![y_values](https://github.com/user-attachments/assets/7d910fc7-2db2-4557-832f-7251583cfebe)
+
+
+## Null values
+![null_values](https://github.com/user-attachments/assets/2bac0e67-b310-4381-bafa-bb8b2baa30da)
+
+
+## Normalized Dataset
+![normalized](https://github.com/user-attachments/assets/fc2841df-78ab-4d06-9223-29de2fe9b526)
+
+
+
+## Training Data
+![training ](https://github.com/user-attachments/assets/a85a9632-af66-455a-9d19-aabaf45935b9)
+
+
+## Testing Data
+![test](https://github.com/user-attachments/assets/2eca2e6d-7818-4b71-b275-a85c28f0b0c6)
 
 
 ## RESULT:
